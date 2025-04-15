@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chanchal ❤️ Anushka</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      font-family: 'Dancing Script', cursive;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #ffdde1, #ffc3a0);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      text-align: center;
+      z-index: 1;
+    }
+
+     
+
+    h1 {
+      font-size: 3em;
+      color: #fff;
+      text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .names {
+      font-size: 3.5em;
+      color: #fff;
+      margin-top: 20px;
+      animation: shimmer 4s infinite, pulse 3s ease-in-out infinite;
+      text-shadow: 0 0 15px #fff;
+    }
+
+    @keyframes shimmer {
+      0%, 100% { text-shadow: 0 0 10px #fff; }
+      50% { text-shadow: 0 0 30px #ffb6c1; }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+
+    .heart {
+      position: absolute;
+      width: 16px;
+      height: 14px;
+      background-color: transparent;
+      transform: rotate(45deg);
+      animation: floatUp 6s linear forwards;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 14px;
+      background-color: inherit;
+      border-radius: 50%;
+    }
+
+    .heart-shape {
+      position: absolute;
+      width: 16px;
+      height: 14px;
+      background-color: #ff6b81;
+      border-radius: 50% 50% 0 0;
+      transform: rotate(-45deg);
+      top: 50%;
+      left: 50%;
+      transform-origin: center;
+    }
+
+    .heart::before {
+      top: -8px;
+      left: 0;
+    }
+
+    .heart::after {
+      top: 0;
+      left: -8px;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(0deg) scale(1);
+        opacity: 0.9;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) rotate(360deg) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    .couple-img {
+      position: justify;
+      bottom: 30px;
+      right: 30px;
+      width: 220px;
+      max-width: 40vw;
+      z-index: 0;
+      filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
+      animation: floatImage 6s ease-in-out infinite;
+    }
+
+    @keyframes floatImage {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2em; }
+      .names { font-size: 2.2em; }
+      .couple-img {
+        width: 150px;
+        right: 10px;
+        bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>❤️ Together Forever ❤️</h1>
+    <h1 class="names">Chanchal & Anushka</h1>
+  </div>
+
+  <!-- Anime-style couple PNG -->
+  <img
+    class="couple-img"
+    src="image.avif" 
+    alt="Anime Couple"
+  />
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+
+      const size = Math.random() * 12 + 12;
+      heart.style.width = `${size}px`;
+      heart.style.height = `${size * 0.9}px`;
+      heart.style.backgroundColor = getRandomHeartColor();
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 7000);
+    }
+
+    function getRandomHeartColor() {
+      const colors = ['#ff6b81', '#ff85a2', '#ff4d6d', '#ff9aa2', '#ffc3a0'];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    // More romantic heart rain
+    setInterval(createHeart, 100);
+  </script>
+</body>
+</html>
